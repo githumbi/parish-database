@@ -1,0 +1,6 @@
+[13-Mar-2018 15:21:55 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'kagcoke'@'localhost' (using password: YES) in /home/kagcoke/public_html/admin/offering/server.php on line 15
+[13-Mar-2018 15:21:55 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/kagcoke/public_html/admin/offering/server.php on line 66
+[13-Mar-2018 15:21:55 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/kagcoke/public_html/admin/offering/offering.php on line 103
+[13-Mar-2018 15:23:57 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'kagcoke'@'localhost' (using password: YES) in /home/kagcoke/public_html/admin/offering/server.php on line 15
+[13-Mar-2018 15:23:57 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/kagcoke/public_html/admin/offering/server.php on line 66
+[13-Mar-2018 15:23:57 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/kagcoke/public_html/admin/offering/offering.php on line 103
