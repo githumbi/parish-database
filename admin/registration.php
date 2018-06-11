@@ -1,28 +1,31 @@
-<?php
-include 'includes/header.php';
-?>
+<?php 
+    include 'include/header.php';
+ ?>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active d-block" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="individual.php">individual details</a></li>
-                    
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="edit.php">EDIT</a></li>
+                    <li class="nav-item" role="presentation" style="padding:3px;"><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="edit.php">Edit</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="submission.php">submission List</a></li>
-                </ul>
-        </div>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="registration.php">Register</a></li>
+                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
         </div>
     </nav>
-    <main class="page pricing-table-page"></main>
-    <div data-aos="fade">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xl-4 offset-xl-4">
-                    <h2 style="color:rgb(255,255,255);"><strong>TITHE / OFFERING</strong></h2>
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark" style="height:92px;background-color:rgba(255,255,255,0);">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info" style="height:40px;padding:-23px;margin:-49px;color:rgb(255,255,255);font-size:39px;"><strong><span style="text-decoration: underline;">SUBMISSION LIST</span></strong></h2>
                 </div>
             </div>
-        </div>
-        <div class="container" style="background-color:#ffffff;"><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        </section>
+    </main>
+    <div data-aos="fade">
+        <div class="container">
+            <div class="row" style="background-color:#ffffff;">
+                <div class="col-md-12"><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Name</th>
@@ -492,8 +495,9 @@ include 'includes/header.php';
             </tr>
         </tbody>
     </table></div>
+            </div>
+        </div>
     </div>
-  
-     <?php
-   include 'includes/footer.php';
-   ?>
+    <?php
+        include 'include/footer.php';
+    ?>

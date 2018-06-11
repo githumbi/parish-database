@@ -1,18 +1,18 @@
-<?php
-include 'includes/signup.db.php';
-include 'includes/header.php';
-?>
+<?php 
 
+    include 'include/signup.db.php';
+    include 'include/header.php';
+ ?>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active d-block" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="individual.php">individual details</a></li>
-                    
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="edit.php">EDIT</a></li>
+                    <li class="nav-item" role="presentation" style="padding:3px;"><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="edit.php">Edit</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="submission.php">submission List</a></li>
-                </ul>
-        </div>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
+                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
         </div>
     </nav>
     <main class="page"></main>
@@ -20,72 +20,74 @@ include 'includes/header.php';
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xl-8 offset-xl-2">
-                    <h2 style="color:rgb(255,255,255);"><strong>SIGNUP / EDIT / REMOVE MEMBERS</strong></h2>
-
-
-           
-
-
-                    <?php if (isset($_SESSION['msg'])):  ?>
+                    <h2 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">SIGNUP / EDIT / REMOVE MEMBERS</span></strong></h2>
                     <div class="row">
                         <div class="col">
-                            <div class="alert alert-success" role="alert"><span><strong>
-                                <?php
-                                  echo $_SESSION['msg'];
-                                  unset($_SESSION['msg']);
-                                ?>
-                            </strong></span><button class="close"><span aria-hidden="true">×</span></button></div>
+                      <?php if (isset($_SESSION['msg'])):  ?>
+                                <div class="alert alert-success" role="alert"><span><strong>
+                                  <?php
+                                    echo $_SESSION['msg'];
+                                    unset($_SESSION['msg']);
+                                  ?>
+                                </strong></span><button class="close"><span aria-hidden="true">×</span></button></div>
+                                <?php endif ?>
                         </div>
                     </div>
-                      <?php endif ?>
                 </div>
             </div>
         </div>
     </div>
+    <div data-aos="fade"></div>
+    <div></div>
+    <div></div>
     <div data-aos="fade">
         <div class="container">
             <div class="row">
-                <div class=" col-md-3 col-xl-5" style="height:854px;background-color:rgba(255,255,255,0);">
-                    <section class="clean-block clean-form dark">
-                        <div class="container flex-grow-1" style="height:695px;">
+                <div class="col-md-12" style="height:903px;">
+                    <section class="clean-block clean-form dark" style="background-color:rgba(246,246,246,0.76);width:1109px;height:888px;">
+                        <div class="container">
                             <div class="block-heading">
-                                <h2 class="text-info">Registration</h2>
-                                <p>Enter details of a member and press Submit.</p>
+                                <h2 class="text-info">Contact Us</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                             </div>
-                            <form style="height:546px;" method="post" action="signup.php">
+                            <form method="post" action="include/signup.db.php">
+                                
                                 <div class="form-group">
-                                  <label >Name</label>
-                                  <input class="form-control item" type="text" id="name" name="name" style="text-transform: uppercase" value="<?php echo $name; ?>">
+                                       <label>Name</label>
+                                       <input type="text" name="name" style="text-transform: uppercase" value="<?php echo $name; ?>" class="form-control" required>
+                                  </div>
+                                  <div class="form-group">
+                                       <label>Phone Number</label>
+                                       <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                  <label>Phone No</label>
-                                  <input class="form-control item" type="text" id="name" name="phone" style="text-transform: uppercase" value="<?php echo $phone; ?>">
+                                  <div class="form-group">
+                                       <label>Email</label>
+                                       <input type="text" name="email" value="<?php echo $email; ?>" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                  <label>Email</label>
-                                  <input class="form-control item" type="text" id="name" name="email" style="text-transform: uppercase" value="<?php echo $email; ?>">
+                                 <div class="form-group">
+                                       <label>residence</label>
+                                       <input type="text" name="residence" value="<?php echo $residence; ?>" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                  <label>Residence</label>
-                                  <input class="form-control item" type="text" id="name" name="residence" style="text-transform: uppercase" value="<?php echo $residence; ?>">
-                                </div>
-                                <div class="form-group">
-                                  <label>Baptism date</label>
-                                  <input class="form-control item" type="date" id="name" name="date" style="text-transform: uppercase" value="<?php echo $date; ?>">
+                                 <div class="form-group">
+                                       <label>Baptism date</label>
+                                       <input type="date" name="date" value="<?php echo $date; ?>" class="form-control">
                                 </div>
 
+                                <div class="form-group">
+                                    <?php if ($edit_state == false):  ?>
+                                  <button class="btn btn-primary btn-block" type="submit" name="save" class="btn">save</button>
+                                      <?php else: ?>
+                                  <button class="btn btn-primary btn-block" type="submit" name="update" class="btn">update</button>
+                                    <?php endif ?>
+                              </div>
 
-                                  <?php if ($edit_state == false):  ?>
-                      <button type="submit" name="save" class="btn btn-primary btn-block" style="height:41px;margin:0;padding:6px;">save</button>
-                          <?php else: ?>
-                      <button type="submit" name="update" class="btn btn-primary btn-block" style="height:41px;margin:0;padding:6px;">update</button>
-                        <?php endif ?>
-                              </form>
+                            </form>
                         </div>
                     </section>
                 </div>
-                <div class=" col-md-9 col-xl-7" style="background-color:#f7f6f4;">
-                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="50%"  style="background-color:#f7f6f4;">
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="background-color:#ffffff;"><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
        <thead>
     <tr>
       <th>No.</th>
@@ -119,18 +121,17 @@ include 'includes/header.php';
             <a href="signup.php?edit=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure You want to Edit details of Selected Person?')">Edit</a>
           </td> 
           <td>
-            <a href="signup.php?del=<?php echo $row[$id]; ?>" onclick="return confirm('Are you sure You want to Delete Selected Person?')">delete</a>
+            <a href="include/signup.db.php?del=<?php echo $row[$id]; ?>" onclick="return confirm('Are you sure You want to Delete Selected Person?')">delete</a>
           </td>
     
     </tr>
     <?php }  ?>
-
+    
   </tbody>
     </table></div>
             </div>
         </div>
     </div>
-    
-     <?php
-   include 'includes/footer.php';
-   ?>
+    <?php
+        include 'include/footer.php';
+    ?>

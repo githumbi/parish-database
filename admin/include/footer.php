@@ -1,4 +1,4 @@
- <footer class="page-footer dark">
+<footer class="page-footer dark">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -39,7 +39,7 @@
             <p>© 2018 Copyright Text</p>
         </div>
     </footer>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
