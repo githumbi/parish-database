@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/untitled.css">
 </head>
 
-<body style="background-image:url(&quot;assets/img/cross 3.jpg&quot;);background-color:rgb(255,255,255);background-size:cover;">
+<body style="background: url(&quot;assets/img/cross 3.jpg&quot;) no-repeat center center fixed; background-size: cover;
+  height: 100%; ">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-info pulse animated clean-navbar" style="background-color:rgb(255,255,255);height:81px;">
         <div class="container-fluid"><a class="navbar-brand logo" href="#" style="background-color:rgba(61,54,54,0);"><img src="assets/img/img.png" style="width:68px;height:72px;">&nbsp;</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" style="color:rgba(255,255,255,0.498);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color:rgba(255,13,13,0.498);"></span></button>
