@@ -8,8 +8,8 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" style="padding:3px;"><a class="nav-link" href="tithe.php">individual details</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="edit.php">Edit</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
+                    
                     <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
                 </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>

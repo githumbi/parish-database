@@ -1,35 +1,104 @@
-<?php 
-    include 'include/header.php';
- ?>
+<?php
+  include 'include/edit.db.php';
+   include 'include/header.php';
+
+
+//fetch the record to be updated
+if (isset($_GET['edit'])) {
+  $id = $_GET['edit'];
+  $edit_state = true;
+  $rec = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', (feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3', (apr1+apr2+apr3+apr4+apr5) AS 'total4', (may1+may2+may3+may4+may5) AS 'total5' from congregation WHERE id=$id;");
+  $record = mysqli_fetch_array($rec);
+  $name = $record['name'];
+  $phone= $record['phone'];
+  $email = $record['email'];
+  $residence = $record['residence'];
+  $interdict = $record['interdict'];
+  $message = $record['message'];
+
+  //the tithe variables represent january!! Don't confuse
+  $tithe1 = $record['tithe1'];$tithe2 = $record['tithe2'];$tithe3 = $record['tithe3'];$tithe4 = $record['tithe4'];$tithe5 = $record['tithe5'];$total = $record['total'];
+  $feb1 = $record['feb1'];$feb2 = $record['feb2'];$feb3 = $record['feb3'];$feb4 = $record['feb4'];$feb5 = $record['feb5'];$total2 = $record['total2'];
+  $march1 = $record['march1'];$march2 = $record['march2'];$march3 = $record['march3'];$march4 = $record['march4'];$march5 = $record['march5'];$total3 = $record['total3'];
+  $apr1 = $record['apr1'];$apr2 = $record['apr2'];$apr3 = $record['apr3'];$apr4 = $record['apr4'];$apr5 = $record['apr5'];$total4 = $record['total4'];
+  $may1 = $record['may1'];$may2 = $record['may2'];$may3 = $record['may3'];$may4 = $record['may4'];$may5 = $record['may5'];$total5 = $record['total5'];
+  $profile = $record['profile'];
+}
+?>
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active d-block" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" style="padding:3px;"><a class="nav-link" href="tithe.php">individual details</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="edit.php">Edit</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
                 </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
         </div>
     </nav>
     <section class="clean-block about-us" style="height:136px;">
-        <div class="container">
-            <div class="block-heading">
-                <h1 class="text-info" style="color:#ffffff;"><strong><span style="text-decoration: underline;">EDIT DETAILS</span></strong></h1>
+       
+    </section>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xl-4 offset-xl-4">
+                    <h2 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">EDIT DETAILS</span></strong></h2>
+     
+                </div>
             </div>
         </div>
-    </section>
+
+
+
+     <?php if($row = mysqli_fetch_array($results)) { ?>
+
+<div class="container" style="background-color:rgba(246,246,246,0.76);">
     <div data-aos="fade">
         <div class="container">
+          <form  method="post" enctype="multipart/form-data" >
             <div class="row">
-                <div class="col-md-12" style="background-color:#ffffff;"><img class="rounded-circle" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200" width="200px" height="200px" style="margin:12px;"></div>
+                <div class="col-md-12" style="background-color:#ffffff;">
+
+                        <?php
+              if (isset($_FILES['profile'])===true){
+                if (empty($_FILES['profile']['name'])===true){
+                    echo "please choose an image!";
+                } else {
+                  $allowed = array('jpg','jpeg','png','gif');
+
+                  $file_name = $_FILES['profile']['name'];
+                  $file_ext = explode('.', $file_name);
+                  $file_extn=strtolower(end($file_ext));
+                  $file_temp = $_FILES['profile']['tmp_name'];
+
+                  if (in_array($file_extn, $allowed)===true){
+                      change_profile_image($id, $file_temp, $file_extn);
+                      header("Refresh:0");
+                     
+                  } else {
+                    echo "incorect file. Upload:";
+                    echo implode(', ', $allowed);
+                  }
+                }
+              }
+
+              if (empty($profile) === false){
+                  echo '<img class="rounded-circle" src="', $profile , '" alt="', $name ,'" width="200px" height="200px" style="margin:12px;">';
+              }else echo '<img class="rounded-circle" src="profile/index.png" alt="', $name ,'" width="200px" height="200px" style="margin:12px;">';
+            ?>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style="padding:15px;background-color:#ffffff;"><input type="file"></div>
+                <div class="col-md-12" style="padding:15px;background-color:#ffffff;">
+                  <input type="file" name="profile"> 
+                  <button class="btn btn-primary" type="submit" name="profile" class="btn">update</button>
+                </div>
             </div>
+          </form>
         </div>
     </div>
+
+    <form method="post" action="include/edit.db.php">
     <div data-aos="fade">
         <div class="container">
             <div class="row">
@@ -50,10 +119,10 @@
   </thead>
   <tbody>
     <tr>
-      <td><input type="text" name="phone" value="<?php echo $phone; ?>"></td>
-      <td><input type="text" name="email" value="<?php echo $email; ?>"></td>
-      <td><input type="text" name="residence" value="<?php echo $residence; ?>"></td>
-      <td><input type="text" placeholder="Edit Yes or No" name="interdict" value="<?php echo $interdict; ?>"></td>
+      <td><input type="text" name="phone" size="15" value="<?php echo $phone; ?>"></td>
+      <td><input type="text" name="email"  size="15"value="<?php echo $email; ?>"></td>
+      <td><input type="text" name="residence" size="15" value="<?php echo $residence; ?>"></td>
+      <td><input type="text" placeholder="Edit Yes or No" name="interdict" size="10" value="<?php echo $interdict; ?>"></td>
     </tr>
   </tbody>
     </table>
@@ -143,7 +212,7 @@
     
  
           <div class="container">
-              <button type="submit" name="update" class="btn">update</button>
+             <button class="btn btn-primary" type="submit" name="update" class="btn">update</button>
           </div>
 </form></div>
             </div>
@@ -152,6 +221,9 @@
             </div>
         </div>
     </div>
+
+</form>
+</div>
     
     <div></div>
     <main class="page contact-us-page"></main>
