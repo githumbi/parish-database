@@ -1,6 +1,5 @@
 <?php
 include 'include/db.php';
-include 'include/registration.db.php';
 include 'include/header.php';
 
 
@@ -24,9 +23,9 @@ if (isset($_GET['edit'])) {
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">Tithe </a></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="registration.php">Register</a></li>
                 </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
         </div>
@@ -45,6 +44,8 @@ if (isset($_GET['edit'])) {
             <div class="row" style="background-color:#ffffff;">
                 <div class="col-md-12">
                    <?php if ($mbers= $record) { ?>
+            <form method="post" action="include/registration.db.php" class="table table-bordered">
+    <input type="hidden" name="id" value="<?php echo $id; ?>"> 
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
    <h1 style="text-transform: uppercase;">Submission form for <?php echo $mbers['username']; ?></h1>
   <thead>
@@ -151,8 +152,8 @@ if (isset($_GET['edit'])) {
       <tr> 
           <td></td>
           <td> APPROVED</td> 
-          <td><input type="radio" name="approved" value="Yes">Yes
-            <input type="radio" name="approved" value="No">No</td>          
+          <td><input type="checkbox" name="approved" value="Yes">Yes
+            <input type="checkbox" name="approved" value="No">No</td>          
       </tr>
 
 
@@ -164,6 +165,7 @@ if (isset($_GET['edit'])) {
           </div>
 </table>
 <?php  } ?>
+</form>
 </div>
             </div>
         </div>

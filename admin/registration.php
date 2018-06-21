@@ -12,11 +12,11 @@ $result1 = $db->query($sql);
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">Tithe </a></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="registration.php">Register</a></li>
-                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
+                </ul> <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);">LOGOUT</a></div>
         </div>
     </nav>
     <main class="page registration-page">

@@ -1,18 +1,49 @@
 <?php 
+   
+    include 'include/db.php';
 
-    include 'include/signup.db.php';
-    include 'include/header.php';
+//initialize variables
+    $name = "";
+  $email = "";
+  $residence = "";
+  $date = "";
+  $phone = "";
+  $id = 0;
+  $edit_state = false;
+
+
+
+
+//if save button is clicked
+
+if (isset($_POST['save'])) {
+      $name = strtoupper($_POST['name']);
+      $email = $_POST['email'];
+      $residence = strtoupper($_POST['residence']);
+      $date = $_POST['date'];
+      $phone = $_POST['phone'];
+      $id=$_POST['id'];
+      
+
+      $query = "INSERT INTO congregation (usr,name,phone, email, residence,date) VALUES ('$_SESSION[name]','$name','$phone', '$email','$residence','$date')";
+      mysqli_query($db, $query);
+      $_SESSION['msg'] = "Information  Saved";
+      header('Location: index.php');//redirect to index page
+      }
+
+
+include 'include/header.php';
  ?>
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active d-block" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">Tithe </a></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
-                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
+                </ul> <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);">LOGOUT</a></div>
         </div>
     </nav>
     <main class="page"></main>
@@ -50,7 +81,7 @@
                                 <h2 class="text-info">Contact Us</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                             </div>
-                            <form method="post" action="include/signup.db.php">
+                            <form method="post" action="signup.php">
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">  
                                 
                                 <div class="form-group">
@@ -87,50 +118,8 @@
                     </section>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12" style="background-color:#ffffff;"><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-       <thead>
-    <tr>
-      <th>No.</th>
-      <th>Name</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Residence</th>
-      <th>Baptism</th>
-      <th colspan="2">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-          
-              <?php 
-              $i=1;
-               while ($row = mysqli_fetch_array($results)) { ?>
-                <tr>
-                    <td> <?php
-                          echo $i;
-                          $i++;
-                          ?>
-                      </td>
 
 
-          <td><?php echo $row['name']; ?></td>
-          <td><?php echo $row['phone']; ?></td>
-          <td><?php  echo $row['email']; ?></td>
-          <td><?php  echo $row['residence']; ?></td>
-          <td><?php  echo $row['date']; ?></td>
-          <td>
-            <a href="signup.php?edit=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure You want to Edit details of Selected Person?')">Edit</a>
-          </td> 
-          <td>
-            <a href="include/signup.db.php?del=<?php echo $row[$id]; ?>" onclick="return confirm('Are you sure You want to Delete Selected Person?')">delete</a>
-          </td>
-    
-    </tr>
-    <?php }  ?>
-    
-  </tbody>
-    </table></div>
-            </div>
         </div>
     </div>
     <?php

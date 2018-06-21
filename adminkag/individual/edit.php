@@ -59,7 +59,7 @@ if (isset($_GET['edit'])) {
               <li><a href="../index.php">Home</a></li>
               <li><a href="../signup/signup.php">Signup Members</a></li>
               <li  class="active"><a href="../input/input.php">Individuals Offering/Tithe</a></li>
-              <li><a href="../offering/offering.php">Weekly Offerings</a></li>
+              <li><a href="../offering/offering.php">Offering s</a></li>
               <li><a href="../view.php">Submission List</a></li>
               <li>
               </div>

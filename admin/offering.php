@@ -1,8 +1,63 @@
 <?php
-include 'include/offering.db.php';
-include 'include/header.php';
 
-//fetch the record to be updated
+include 'include/db.php';
+//initialize variables
+    $offering = "";
+  $offering_1 = "";
+  $offering_2 = "";
+  $offering_3 = "";
+  $offering_4 = "";
+  $offering_5 = "";
+  $total = "";
+  $id = 0;
+  $edit_state = false;
+
+
+
+//retrieve records
+$results = mysqli_query($db, "SELECT * FROM offering WHERE usr = '$_SESSION[name]'");
+
+
+//insert offering
+if (isset($_POST['save'])) {
+  $offering = $_POST['offering'];
+  $offering_1 = $_POST['offering_1'];
+  $offering_2 = $_POST['offering_2'];
+  $offering_3 = $_POST['offering_3'];
+  $offering_4 = $_POST['offering_4'];
+  $offering_5 = $_POST['offering_5'];
+  
+  
+
+  $query = "INSERT INTO offering (usr, offering, offering_1, offering_2, offering_3, offering_4, offering_5) VALUES ('$_SESSION[name]','$offering', '$offering_1', '$offering_2','$offering_3','$offering_4','$offering_5') ";
+  mysqli_query($db, $query);
+  $_SESSION['msg'] = "New row has been added";
+  header('Location: offering.php');
+}
+
+
+
+
+//update records
+
+if (isset($_POST['update'])) {
+  $offering = $_POST['offering'];
+  $offering_1 = $_POST['offering_1'];
+  $offering_2 = $_POST['offering_2'];
+  $offering_3 = $_POST['offering_3'];
+  $offering_4 = $_POST['offering_4'];
+  $offering_5 = $_POST['offering_5'];
+  $total = $_POST['total'];
+  $id= $_POST['id'];
+
+  mysqli_query($db, "UPDATE offering SET offering='$offering', offering_1='$offering_1', offering_2='$offering_2', offering_3='$offering_3', offering_4='$offering_4' ,offering_5='$offering_5' WHERE id=$id ");
+  $_SESSION['msg'] = "The information has been Updated";
+  header('Location: offering.php');
+  
+}
+
+
+
 if (isset($_GET['edit'])) {
   $id = $_GET['edit'];
   $edit_state = true;
@@ -17,17 +72,20 @@ if (isset($_GET['edit'])) {
   $total = $record['total'];
 
 }
+
+include 'include/header.php';
+
 ?>
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link" href="tithe.php">Tithe </a></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="offering.php">weekly offering</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
-                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
+                </ul> <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);">LOGOUT</a></div>
         </div>
     </nav>
     <main class="page login-page"></main>
@@ -36,7 +94,7 @@ if (isset($_GET['edit'])) {
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xl-9 offset-xl-4">
-                    <h1 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">WEEKLY OFFERING</span></strong></h1>
+                    <h1 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">Offering </span></strong></h1>
                 </div>
             </div>
         </div>
@@ -98,11 +156,21 @@ if (isset($_GET['edit'])) {
                                 <h2 class="text-info">Contact Us</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                             </div>
-                            <form method="post" action="include/offering.db.php" >
+                            <form method="post" action="offering.php" >
+                              <?php
+                              $sql = $db->query("SELECT * FROM months");
+                              ?>
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">  
                               <div class="form-group">
                                      <label>Month | Year e.g. January 2018 </label>
-                                     <input type="text" name="offering" value="<?php echo $offering; ?>" class="form-control" required>
+                                     <select name="offering" class="form-control"> 
+                                        <option value="<?=(($offering=='')?' selected':'')?>"></option>
+                                        <?php while($date = mysqli_fetch_assoc($sql)): ?>
+                                        <option value="<?=$date['name'];?>"<?=(($offering == $date['name'])?' selected':'')?>><?=$date['name'];?></option>
+                                      <?php endwhile; ?>
+
+                                     </select>
+                                    
                                 </div>
                                 <div class="form-group">
                                      <label>offering (week 1)</label>

@@ -1,17 +1,25 @@
 <?php 
-    include 'include/tithe.db.php';
-    include 'include/header.php';
+include 'include/db.php';
+
+//retrieve records
+$results = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', (feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3', (apr1+apr2+apr3+apr4+apr5) AS 'total4' ,(may1+may2+may3+may4+may5) AS 'total5' from congregation  WHERE usr = '$_SESSION[name]' ORDER BY name");
+
+//Full sum of tithe per month
+$results2 = mysqli_query($db, "SELECT *, sum(tithe1+tithe2+tithe3+tithe4+tithe5) AS 'jan', sum(feb1+feb2+feb3+feb4+feb5) AS 'feb', sum(march1+march2+march3+march4+march5) AS 'march', sum(apr1+apr2+apr3+apr4+apr5) AS 'apr' , sum(may1+may2+may3+may4+may5) AS 'may' from congregation WHERE usr = '$_SESSION[name]'");
+   
+
+  include 'include/header.php';
  ?>
             <div
                 class="collapse navbar-collapse" id="navcol-1" style="background-color:#3b99e0;width:328px;margin:0;">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tithe.php">individual details</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tithe.php">Tithe </a></li>
                     
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">weekly offering</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
-                </ul><button class="btn btn-primary" type="button" style="background-color:rgb(13,230,34);">LOGOUT</button></div>
+                </ul> <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);">LOGOUT</a></div>
         </div>
     </nav>
     <main class="page pricing-table-page"></main>
@@ -19,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xl-4 offset-xl-4">
-                    <h2 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">TITHE / OFFERING</span></strong></h2>
+                    <h2 style="color:rgb(255,255,255);"><strong><span style="text-decoration: underline;">TITHE DETAILS</span></strong></h2>
                     <div class="row">
                     </div>
                 </div>
