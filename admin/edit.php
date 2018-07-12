@@ -25,18 +25,33 @@ if (isset($_POST['update'])) {
   $residence = $_POST['residence'];
   $interdict = $_POST['interdict'];
   $message = $_POST['message'];
-  $tithe1 = $_POST['tithe1'];
-  $tithe2 = $_POST['tithe2'];
-  $tithe3= $_POST['tithe3'];
-  $tithe4= $_POST['tithe4'];
-  $tithe5= $_POST['tithe5'];
-    $feb1=$_POST['feb1'];$feb2=$_POST['feb2'];$feb3=$_POST['feb3'];$feb4=$_POST['feb4'];$feb5=$_POST['feb5'];
-    $march1=$_POST['march1'];$march2=$_POST['march2'];$march3=$_POST['march3'];$march4=$_POST['march4'];$march5=$_POST['march5'];
+  $tithe1 = $_POST['tithe1'];$tithe2 = $_POST['tithe2'];$tithe3= $_POST['tithe3'];$tithe4= $_POST['tithe4'];$tithe5= $_POST['tithe5'];
+  $feb1=$_POST['feb1'];$feb2=$_POST['feb2'];$feb3=$_POST['feb3'];$feb4=$_POST['feb4'];$feb5=$_POST['feb5'];
+  $march1=$_POST['march1'];$march2=$_POST['march2'];$march3=$_POST['march3'];$march4=$_POST['march4'];$march5=$_POST['march5'];
   $apr1 = $_POST['apr1'];$apr2 = $_POST['apr2'];$apr3= $_POST['apr3'];$apr4=$_POST['apr4'];$apr5= $_POST['apr5'];
   $may1 = $_POST['may1'];$may2 = $_POST['may2'];$may3= $_POST['may3'];$may4= $_POST['may4'];$may5= $_POST['may5'];
+  $june1 = $_POST['june1'];$june2 = $_POST['june2'];$june3= $_POST['june3'];$june4= $_POST['june4'];$june5= $_POST['june5'];
+  $july1 = $_POST['july1'];$july2 = $_POST['july2'];$july3= $_POST['july'];$july4= $_POST['july4'];$july5= $_POST['july5'];
+  $august1 = $_POST['august1'];$august2 = $_POST['august2'];$august3= $_POST['august3'];$august4= $_POST['august4'];$august5= $_POST['august5'];
+  $sept1 = $_POST['sept1'];$sept2 = $_POST['sept2'];$sept3= $_POST['sept3'];$sept4= $_POST['sept4'];$sept5= $_POST['sept5'];
+  $oct1 = $_POST['oct1'];$oct2 = $_POST['oct2'];$oct3= $_POST['oct3'];$oct4= $_POST['oct4'];$oct5= $_POST['oct5'];
+  $nov1 = $_POST['nov1'];$nov2 = $_POST['nov2'];$nov3= $_POST['nov3'];$nov4= $_POST['nov4'];$nov5= $_POST['nov5'];
+  $dec1 = $_POST['dec1'];$dec2 = $_POST['dec2'];$dec3= $_POST['dec3'];$dec4= $_POST['dec4'];$dec5= $_POST['dec5'];
   $id= $_POST['id'];
 
-  mysqli_query($db, "UPDATE congregation SET phone ='$phone', email='$email', residence='$residence',  interdict='$interdict', tithe1='$tithe1', tithe2='$tithe2', tithe3='$tithe3', tithe4='$tithe4',tithe5='$tithe5', feb1='$feb1', feb2='$feb2', feb3='$feb3', feb4='$feb4',feb5='$feb5', march1='$march1', march2='$march2', march3='$march3', march4='$march4',march5='$march5', apr1='$apr1', apr2='$apr2', apr3='$apr3', apr4='$apr4',apr5='$apr5',may1='$may1', may2='$may2', may3='$may3', may4='$may4',may5='$may5', message='$message' WHERE id=$id ");
+  mysqli_query($db, "UPDATE congregation SET phone ='$phone', email='$email', residence='$residence',  interdict='$interdict',
+   tithe1='$tithe1', tithe2='$tithe2', tithe3='$tithe3', tithe4='$tithe4',tithe5='$tithe5', feb1='$feb1', feb2='$feb2',
+    feb3='$feb3', feb4='$feb4',feb5='$feb5', march1='$march1', march2='$march2', march3='$march3', march4='$march4', 
+    march5='$march5', apr1='$apr1', apr2='$apr2', apr3='$apr3', apr4='$apr4',apr5='$apr5',may1='$may1', may2='$may2', 
+    may3='$may3', may4='$may4',may5='$may5',
+    june1='$june1', june2='$june2', june3='$june3', june4='$june4',june5='$june5',
+    july1='$july1', july2='$july2',july3='$july3', july4='$july4',july5='$july5', 
+    august1='$august1', august2='$august2', august3='$august3', august4='$august4',august5='$august5',
+    sept1='$sept1', sept2='$sept2', sept3='$sept3', sept4='$sept4',sept5='$sept5',
+    oct1='$oct1', oct2='$oct2', oct3='$oct3', oct4='$oct4',oct5='$oct5',
+    nov1='$nov1', nov2='$nov2', nov3='$nov3', nov4='$nov4',nov5='$nov5',
+    dec1='$dec1', dec2='$dec2', dec3='$dec3', dec4='$dec4',dec5='$dec5', 
+    message='$message' WHERE id=$id ");
 
   $_SESSION['msg'] = "The information has been Updated";
   header('Location: index.php');
@@ -45,12 +60,14 @@ if (isset($_POST['update'])) {
 
 
 
-
-
-
-//retrieve records
-$results = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', (feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3', (apr1+apr2+apr3+apr4+apr5) AS 'total4' , (may1+may2+may3+may4+may5) AS 'total5' from congregation;");
-
+//retrieve tithe in form of months
+$results = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', 
+(feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3',
+ (apr1+apr2+apr3+apr4+apr5) AS 'total4' ,(may1+may2+may3+may4+may5) AS 'total5',
+ (june1+june2+june3+june4+june5) AS 'total6', (july1+july2+july3+july4+july5) AS 'total7', 
+ (august1+august2+august3+august4+august5) AS 'total8', (sept1+sept2+sept3+sept4+sept5) AS 'total9',
+ (oct1+oct2+oct3+oct4+oct5) AS 'total10', (nov1+nov2+nov3+nov4+nov5) AS 'total11',
+ (dec1+dec2+dec3+dec4+dec5) AS 'total12' from congregation;");
 
 
 
@@ -58,7 +75,13 @@ $results = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 
 if (isset($_GET['edit'])) {
   $id = $_GET['edit'];
   $edit_state = true;
-  $rec = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', (feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3', (apr1+apr2+apr3+apr4+apr5) AS 'total4', (may1+may2+may3+may4+may5) AS 'total5' from congregation WHERE id=$id;");
+  $rec = mysqli_query($db, "SELECT *, (tithe1+tithe2+tithe3+tithe4+tithe5) AS 'total', 
+  (feb1+feb2+feb3+feb4+feb5) AS 'total2', (march1+march2+march3+march4+march5) AS 'total3',
+   (apr1+apr2+apr3+apr4+apr5) AS 'total4' ,(may1+may2+may3+may4+may5) AS 'total5',
+   (june1+june2+june3+june4+june5) AS 'total6', (july1+july2+july3+july4+july5) AS 'total7', 
+   (august1+august2+august3+august4+august5) AS 'total8', (sept1+sept2+sept3+sept4+sept5) AS 'total9',
+   (oct1+oct2+oct3+oct4+oct5) AS 'total10', (nov1+nov2+nov3+nov4+nov5) AS 'total11',
+   (dec1+dec2+dec3+dec4+dec5) AS 'total12'   from congregation WHERE id=$id;");
   $record = mysqli_fetch_array($rec);
   $name = $record['name'];
   $phone= $record['phone'];
@@ -73,6 +96,13 @@ if (isset($_GET['edit'])) {
   $march1 = $record['march1'];$march2 = $record['march2'];$march3 = $record['march3'];$march4 = $record['march4'];$march5 = $record['march5'];$total3 = $record['total3'];
   $apr1 = $record['apr1'];$apr2 = $record['apr2'];$apr3 = $record['apr3'];$apr4 = $record['apr4'];$apr5 = $record['apr5'];$total4 = $record['total4'];
   $may1 = $record['may1'];$may2 = $record['may2'];$may3 = $record['may3'];$may4 = $record['may4'];$may5 = $record['may5'];$total5 = $record['total5'];
+  $june1 = $record['june1'];$june2 = $record['june2'];$june3 = $record['june3'];$june4 = $record['june4'];$june5 = $record['june5'];$total6 = $record['total6'];
+  $july1 = $record['july1'];$july2 = $record['july2'];$july3 = $record['july3'];$july4 = $record['july4'];$july5 = $record['july5'];$total7 = $record['total7'];
+  $august1 = $record['august1'];$august2 = $record['august2'];$august3 = $record['august3'];$august4 = $record['august4'];$august5 = $record['august5'];$total8 = $record['total8'];
+  $sept1 = $record['sept1'];$sept2 = $record['sept2'];$sept3 = $record['sept3'];$sept4 = $record['sept4'];$sept5 = $record['sept5'];$total9 = $record['total9'];
+  $oct1 = $record['oct1'];$oct2 = $record['oct2'];$oct3 = $record['oct3'];$oct4 = $record['oct4'];$oct5 = $record['oct5'];$total10 = $record['total10'];
+  $nov1 = $record['nov1'];$nov2 = $record['nov2'];$nov3 = $record['nov3'];$nov4 = $record['nov4'];$nov5 = $record['nov5'];$total11 = $record['total11'];
+  $dec1 = $record['dec1'];$dec2 = $record['dec2'];$dec3 = $record['dec3'];$dec4 = $record['dec4'];$dec5 = $record['dec5'];$total12 = $record['total12'];
   $profile = $record['profile'];
 }
 ?>
@@ -255,7 +285,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="june3" size="7" value="<?php echo $june3; ?>"></td>
           <td><input type="text" name="june4" size="7" value="<?php echo $june4; ?>"></td>
           <td><input type="text" name="june5" size="7" value="<?php echo $june5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total6; ?></td>
       </tr>
 
        <tr> 
@@ -265,7 +295,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="july3" size="7" value="<?php echo $july3; ?>"></td>
           <td><input type="text" name="july4" size="7" value="<?php echo $july4; ?>"></td>
           <td><input type="text" name="july5" size="7" value="<?php echo $july5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total7; ?></td>
       </tr>
 
        <tr> 
@@ -275,7 +305,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="august3" size="7" value="<?php echo $august3; ?>"></td>
           <td><input type="text" name="august4" size="7" value="<?php echo $august4; ?>"></td>
           <td><input type="text" name="august5" size="7" value="<?php echo $august5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total8; ?></td>
       </tr>
 
        <tr> 
@@ -285,7 +315,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="sept3" size="7" value="<?php echo $sept3; ?>"></td>
           <td><input type="text" name="sept4" size="7" value="<?php echo $sept4; ?>"></td>
           <td><input type="text" name="sept5" size="7" value="<?php echo $sept5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total9; ?></td>
       </tr>
 
        <tr> 
@@ -295,7 +325,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="oct3" size="7" value="<?php echo $oct3; ?>"></td>
           <td><input type="text" name="oct4" size="7" value="<?php echo $oct4; ?>"></td>
           <td><input type="text" name="oct5" size="7" value="<?php echo $oct5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total10; ?></td>
       </tr>
 
        <tr> 
@@ -305,7 +335,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="nov3" size="7" value="<?php echo $nov3; ?>"></td>
           <td><input type="text" name="nov4" size="7" value="<?php echo $nov4; ?>"></td>
           <td><input type="text" name="nov5" size="7" value="<?php echo $nov5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total11; ?></td>
       </tr>
 
        <tr> 
@@ -315,7 +345,7 @@ if (isset($_GET['edit'])) {
           <td><input type="text" name="dec3" size="7" value="<?php echo $dec3; ?>"></td>
           <td><input type="text" name="dec4" size="7" value="<?php echo $dec4; ?>"></td>
           <td><input type="text" name="dec5" size="7" value="<?php echo $dec5; ?>"></td>
-          <td><?php echo $total5; ?></td>
+          <td><?php echo $total12; ?></td>
       </tr>
 
 </tbody>
