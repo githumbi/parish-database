@@ -248,6 +248,76 @@ if (isset($_GET['edit'])) {
           <td><?php echo $total5; ?></td>
       </tr>
 
+       <tr> 
+          <td>june 2018</td> 
+          <td><input type="text" name="june1" size="7" value="<?php echo $june1; ?>"></td>
+          <td><input type="text" name="june2" size="7" value="<?php echo $june2; ?>"></td>
+          <td><input type="text" name="june3" size="7" value="<?php echo $june3; ?>"></td>
+          <td><input type="text" name="june4" size="7" value="<?php echo $june4; ?>"></td>
+          <td><input type="text" name="june5" size="7" value="<?php echo $june5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>july 2018</td> 
+          <td><input type="text" name="july1" size="7" value="<?php echo $july1; ?>"></td>
+          <td><input type="text" name="july2" size="7" value="<?php echo $july2; ?>"></td>
+          <td><input type="text" name="july3" size="7" value="<?php echo $july3; ?>"></td>
+          <td><input type="text" name="july4" size="7" value="<?php echo $july4; ?>"></td>
+          <td><input type="text" name="july5" size="7" value="<?php echo $july5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>august 2018</td> 
+          <td><input type="text" name="august1" size="7" value="<?php echo $august1; ?>"></td>
+          <td><input type="text" name="august2" size="7" value="<?php echo $august2; ?>"></td>
+          <td><input type="text" name="august3" size="7" value="<?php echo $august3; ?>"></td>
+          <td><input type="text" name="august4" size="7" value="<?php echo $august4; ?>"></td>
+          <td><input type="text" name="august5" size="7" value="<?php echo $august5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>sept 2018</td> 
+          <td><input type="text" name="sept1" size="7" value="<?php echo $sept1; ?>"></td>
+          <td><input type="text" name="sept2" size="7" value="<?php echo $sept2; ?>"></td>
+          <td><input type="text" name="sept3" size="7" value="<?php echo $sept3; ?>"></td>
+          <td><input type="text" name="sept4" size="7" value="<?php echo $sept4; ?>"></td>
+          <td><input type="text" name="sept5" size="7" value="<?php echo $sept5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>oct 2018</td> 
+          <td><input type="text" name="oct1" size="7" value="<?php echo $oct1; ?>"></td>
+          <td><input type="text" name="oct2" size="7" value="<?php echo $oct2; ?>"></td>
+          <td><input type="text" name="oct3" size="7" value="<?php echo $oct3; ?>"></td>
+          <td><input type="text" name="oct4" size="7" value="<?php echo $oct4; ?>"></td>
+          <td><input type="text" name="oct5" size="7" value="<?php echo $oct5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>nov 2018</td> 
+          <td><input type="text" name="nov1" size="7" value="<?php echo $nov1; ?>"></td>
+          <td><input type="text" name="nov2" size="7" value="<?php echo $nov2; ?>"></td>
+          <td><input type="text" name="nov3" size="7" value="<?php echo $nov3; ?>"></td>
+          <td><input type="text" name="nov4" size="7" value="<?php echo $nov4; ?>"></td>
+          <td><input type="text" name="nov5" size="7" value="<?php echo $nov5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
+       <tr> 
+          <td>dec 2018</td> 
+          <td><input type="text" name="dec1" size="7" value="<?php echo $dec1; ?>"></td>
+          <td><input type="text" name="dec2" size="7" value="<?php echo $dec2; ?>"></td>
+          <td><input type="text" name="dec3" size="7" value="<?php echo $dec3; ?>"></td>
+          <td><input type="text" name="dec4" size="7" value="<?php echo $dec4; ?>"></td>
+          <td><input type="text" name="dec5" size="7" value="<?php echo $dec5; ?>"></td>
+          <td><?php echo $total5; ?></td>
+      </tr>
+
 </tbody>
     </table>
 
