@@ -1,6 +1,18 @@
 <?php
 
 include 'include/db.php';
+
+//query to check if the selected month and user row exist .. if not a row is inserted
+    $all = "SELECT * FROM offering WHERE usr ='$_SESSION[name]'";
+    $record = mysqli_query($db, $all);
+    $confirm = mysqli_num_rows($record);
+    if ($confirm==0) {
+        $fetchy= "INSERT INTO offering (usr, offering) VALUES ('$_SESSION[name]', 'january'), ('$_SESSION[name]', 'February'), ('$_SESSION[name]', 'March'), ('$_SESSION[name]', 'April'), ('$_SESSION[name]', 'May'),('$_SESSION[name]', 'June'),('$_SESSION[name]', 'July'),('$_SESSION[name]', 'Aughust'),('$_SESSION[name]', 'September'),('$_SESSION[name]', 'October'),('$_SESSION[name]', 'November'),('$_SESSION[name]', 'December')";
+        mysqli_query($db, $fetchy);
+     } 
+     // end
+
+
 //initialize variables
     $offering = "";
   $offering_1 = "";
@@ -116,12 +128,12 @@ include 'include/header.php';
                 <div class="col-md-6 col-xl-7 offset-xl-0" style="background-color:#f6f6f6;"><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
          <thead>
     <tr>
-      <th>Month | Year</th>
-      <th>offering (week 1) </th>
-      <th>offering (week 2)</th>
-      <th>offering (week 3)</th>
-      <th>offering (week 4)</th>
-      <th>offering (week 5)</th>
+      <th>Month</th>
+      <th>week 1 </th>
+      <th>week 2</th>
+      <th>week 3</th>
+      <th>week 4</th>
+      <th>week 5</th>
       <th >Action</th>
     </tr>
   </thead>
@@ -153,8 +165,8 @@ include 'include/header.php';
                     <section class="clean-block clean-form dark" style="background-color:rgba(246,246,246,0.76);"> 
                         <div class="container">
                             <div class="block-heading">
-                                <h2 class="text-info">Contact Us</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                                <!-- <h2 class="text-info">Contact Us</h2> -->
+                                <p>To input amount of specific Month, Press edit on specific month so as to edit here below.</p>
                             </div>
                             <form method="post" action="offering.php" >
                               <?php
@@ -162,15 +174,8 @@ include 'include/header.php';
                               ?>
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">  
                               <div class="form-group">
-                                     <label>Month | Year e.g. January 2018 </label>
-                                     <select name="offering" class="form-control"> 
-                                        <option value="<?=(($offering=='')?' selected':'')?>"></option>
-                                        <?php while($date = mysqli_fetch_assoc($sql)): ?>
-                                        <option value="<?=$date['name'];?>"<?=(($offering == $date['name'])?' selected':'')?>><?=$date['name'];?></option>
-                                      <?php endwhile; ?>
-
-                                     </select>
-                                    
+                                     <label>Month </label>
+                                     <input type="text" name="offering" value="<?php echo $offering; ?>" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                      <label>offering (week 1)</label>

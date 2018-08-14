@@ -28,13 +28,47 @@ $results2 = mysqli_query($db, "SELECT *, sum(tithe1+tithe2+tithe3+tithe4+tithe5)
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="signup.php">SIGNUP MEMBERS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tithe.php">Tithe </a></li>
+                     <li class="nav-item" role="presentation" ><a class="nav-link" href="report.php">Monthly Report </a></li>
                     
                     <li class="nav-item" role="presentation"><a class="nav-link" href="offering.php">Offering </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li>
-                </ul> <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);">LOGOUT</a></div>
+                </ul>
+
+            
+           <!--  <a href="include/logout.php" class="btn btn-primary" type="submit" style="background-color:rgb(13,230,34);" >LOGOUT</a> -->
+          
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+              LOGOUT<br>  <?php echo strtoupper($_SESSION['name']); ?> BRANCH
+            </button>
+  
+
+                </div>
         </div>
     </nav>
-    <main class="page pricing-table-page"></main>
+
+    <main class="page landing-page">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                 <!--  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div> -->
+                  <div class="modal-body">
+                    Are you sure You want to logout from <?php echo $_SESSION['name']; ?> Branch?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="include/logout.php" type="submit" class="btn btn-danger">Logout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </main>      
+  
     <div data-aos="fade">
         <div class="container">
             <div class="row">

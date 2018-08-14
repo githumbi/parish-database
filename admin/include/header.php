@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Brand</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -24,4 +25,6 @@
 <body style="background: url(&quot;assets/img/cross 3.jpg&quot;) no-repeat center center fixed; background-size: cover;
   height: 100%; ">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-info pulse animated clean-navbar" style="background-color:rgb(255,255,255);height:81px;">
-        <div class="container-fluid"><a class="navbar-brand logo" href="#" style="background-color:rgba(61,54,54,0);"><img src="assets/img/img.png" style="width:68px;height:72px;">&nbsp;</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" style="color:rgba(255,255,255,0.498);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color:rgba(255,13,13,0.498);"></span></button>
+        <div class="container-fluid"><a class="navbar-brand logo" href="#" style="background-color:rgba(61,54,54,0);">
+        <img src="assets/img/img.png" style="width:68px;height:72px;">&nbsp;
+        </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" style="color:rgba(255,255,255,0.498);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color:rgba(255,13,13,0.498);"></span></button>
