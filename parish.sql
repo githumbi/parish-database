@@ -2,7 +2,7 @@
 -- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
+
 -- Generation Time: Jul 24, 2018 at 03:01 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.9
